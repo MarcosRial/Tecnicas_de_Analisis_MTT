@@ -1,5 +1,8 @@
-##Prácticas TACC
-##08/10/2014
+## Máster en Gestión Sostenible de la Tierra y el Territorio
+## Técnicas de análisis cuantitativas y cualitativas
+## Script de R para la realización de la práctica 3
+## 08/10/2015
+## Marcos Rial Docampo
 
 #Importación de datos
 datos<-read.csv("Datos/DatosClase.csv")
