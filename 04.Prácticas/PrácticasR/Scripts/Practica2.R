@@ -1,6 +1,6 @@
 ## Máster en Gestión Sostenible de la Tierra y el Territorio
 ## Técnicas de análisis cuantitativas y cualitativas
-## Script de R para la realización de la práctica 3
+## Script de R para la realización de la práctica 2. Contrastes de Hipótesis
 ## 08/10/2015
 ## Marcos Rial Docampo
 

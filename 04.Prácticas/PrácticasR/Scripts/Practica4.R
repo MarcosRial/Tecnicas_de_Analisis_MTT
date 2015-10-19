@@ -1,7 +1,8 @@
-## Universidad de Santiago de Compostela
 ## Máster en Gestión Sostenible de la Tierra y el Territorio
 ## Técnicas de análisis cuantitativas y cualitativas
-## Script de R para la realización de la práctica 4
+## Script de R para la realización de la práctica 4. Modelos de regresión lineal
+## 16/10/2015
+## Marcos Rial Docampo
 
 ### Preliminares
 # Instalamos el paquete adicional HSAUR

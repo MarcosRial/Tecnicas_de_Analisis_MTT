@@ -1,6 +1,6 @@
 ## Máster en Gestión Sostenible de la Tierra y el Territorio
 ## Técnicas de análisis cuantitativas y cualitativas
-## Script de R para la realización de la práctica 1
+## Script de R para la realización de la práctica 1. Introducción a R y RStudio.
 ## 16/10/2015
 ## Marcos Rial Docampo
 
