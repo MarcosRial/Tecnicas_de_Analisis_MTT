@@ -58,7 +58,7 @@ El primer error en lo referente a la presentación de los datos es la de la omis
 
 Podemos tomar el ejercicio como un conjunto de cuatro ejercicios individuales en los que cada uno trata un modelo discreto distinto bajo una distribución binomial. Es decir, tomar para el caso del PP que un 33.7\% de la población lo votaría frente al 66.7\% que no lo haría. Tenemos por tanto un éxito de 0.337.
 
-Para completar los datos de límites superior e inferior del intervalo de confianza mostrados en el cuadro \ref{tab:resumen} utilizamos el comando \textit{prom.test} de R como se especifica en la figura \ref{fig:promtest}.
+Para completar los datos de límites superior e inferior del intervalo de confianza mostrados en el cuadro \ref{tab:resumen} utilizamos el comando \textit{prom.test()} de R como se especifica en la figura \ref{fig:promtest}.
 
 \begin{table}
 	\centering
@@ -68,9 +68,9 @@ Para completar los datos de límites superior e inferior del intervalo de confia
 	& Valor & Valor & LI & LS \\
 	\midrule
 	PP & 34,6\% & 33,7\% & 29.6 & 38.0 \\
-	Cs & 11,4\% & 13,8\% & 11.0 & 17.2 \\
+	Cs & 11,4\% & 13,8\% & 10.9 & 17.1 \\
 	AM & 31,9\% & 29,1\% & 25.2 & 33.3 \\
-	PSOE & 15,3\% & 17,4\% & 14.2 & 21.1 \\
+	PSOE & 15,3\% & 17,4\% & 14.2 & 21.0 \\
 	\bottomrule[0.4mm]
 	& & \multicolumn{3}{p{3.4cm}}{\footnotesize{LI y LS límites inferior y superior del intervalo de confianza al 95\%}}
 	\end{tabular}
@@ -85,24 +85,20 @@ Para completar los datos de límites superior e inferior del intervalo de confia
   #n=502, error de muestreo +/-4.5%
   #Aplicacion de prop.test para definir los intervalos de confianza
   #PP con 33.7% de los votos
-  prop.test(169.174,502,
-            conf.level = 0.95,
-            alternative = "two.sided")
+  prop.test(round(0.337*502, digits = 0),502,
+            conf.level = 0.95)
 
   #Cs con 13.8% de los votos
-  prop.test(69.276,502,
-            conf.level = 0.95,
-            alternative = "two.sided")
+  prop.test(round(0.138*502, digits = 0),502,
+            conf.level = 0.95)
 
   #AM con 29.1% de los votos
-  prop.test(146.082,502,
-            conf.level = 0.95,
-            alternative = "two.sided")
+  prop.test(round(0.291*502, digits = 0),502,
+            conf.level = 0.95)
 
   #PSOE con 17.4% de los votos
-  prop.test(87.348,502,
-    	    conf.level = 0.95,
-            alternative = "two.sided")
+  prop.test(round(0.174*502, digits = 0),502,
+            conf.level = 0.95)
 \end{lstlisting}
 \captionsetup{font={footnotesize,it}}
 \caption{Script en R con la aplicación de \textit{prom.test} a los datos de la encuesta.}
