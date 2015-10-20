@@ -54,11 +54,11 @@
 
 En el ejercicio se presentan dos tipos de resultados de forma gráfica aparecidos en prensa. Los primeros resultados son los referentes a la información extraída del resultado de las elecciones municipales de Madrid del 24 de mayo de 2015 en la que se muestra en forma de gráfico el porcentaje de votos recibidos por las diferentes formaciones políticas. Los segundos resultados son extraídos de una encuesta de estimación de voto en el municipio de Madrid hecha entre los días 4 y 10 de septiembre de 2015.
 
-El primer error en lo referente a la presentación de los datos es la de la omisión de incluir en los datos de la encuesta los intervalos de confianza. En el primer caso no sería correcto incluir el intervalo de confianza puesto que se trata de datos objetivos extraídos de unos resultados electorales donde el tamaño muestral es el total de la población con derecho a voto del municipio de Madrid. No se trata de una encuesta como en el segundo caso, donde el tamaño muestral es de 502 personas consultadas.
+El primer error en lo referente a la presentación de los datos es la de la omisión de incluir en los datos de la encuesta los intervalos de confianza. En el primer caso no sería correcto incluir el intervalo de confianza puesto que se trata de datos obtenidos de unos resultados electorales donde se convocaba a participar al total de la población con derecho a voto del municipio de Madrid. No se trata de una encuesta como en el segundo caso, donde el tamaño muestral es de 502 personas consultadas.
 
 Podemos tomar el ejercicio como un conjunto de cuatro ejercicios individuales en los que cada uno trata un modelo discreto distinto bajo una distribución binomial. Es decir, tomar para el caso del PP que un 33.7\% de la población lo votaría frente al 66.7\% que no lo haría. Tenemos por tanto un éxito de 0.337.
 
-Para completar los datos de límites superior e inferior del intervalo de confianza mostrados en el cuadro \ref{tab:resumen} utilizamos el comando \textit{prom.test()} de R como se especifica en la figura \ref{fig:promtest}.
+Para completar los datos de límites superior e inferior del intervalo de confianza mostrados en el cuadro \ref{tab:resumen} utilizamos el comando \textit{prop.test()} de R como se especifica en la figura \ref{fig:proptest}.
 
 \begin{table}
 	\centering
@@ -67,10 +67,10 @@ Para completar los datos de límites superior e inferior del intervalo de confia
 	Partido & Elecciones (mayo) & \multicolumn{3}{c}{Encuesta (sept.)}\\
 	& Valor & Valor & LI & LS \\
 	\midrule
-	PP & 34,6\% & 33,7\% & 29.6 & 38.0 \\
-	Cs & 11,4\% & 13,8\% & 10.9 & 17.1 \\
-	AM & 31,9\% & 29,1\% & 25.2 & 33.3 \\
-	PSOE & 15,3\% & 17,4\% & 14.2 & 21.0 \\
+	PP & 34,6\% & 33,7\% & 29,6 & 38,0 \\
+	Cs & 11,4\% & 13,8\% & 10,9 & 17,1 \\
+	AM & 31,9\% & 29,1\% & 25,2 & 33,3 \\
+	PSOE & 15,3\% & 17,4\% & 14,2 & 21,0 \\
 	\bottomrule[0.4mm]
 	& & \multicolumn{3}{p{3.4cm}}{\footnotesize{LI y LS límites inferior y superior del intervalo de confianza al 95\%}}
 	\end{tabular}
@@ -78,6 +78,8 @@ Para completar los datos de límites superior e inferior del intervalo de confia
 	\caption{Resumen de los resultados de las elecciones de mayo y la encuesta de septiembre.}
 \label{tab:resumen}
 \end{table}
+
+Se indica en la noticia que el error de muestreo es de $\pm4,5$. Una forma de reducir este error podría ser la de ampliar el tamaño de la muestra. Pero es un valor que no debería generalizarse a toda la encuesta puesto que tenemos resultados porcentuales de lo que se espera obtener en la encuesta para cada uno de los partidos políticos (resultados electorales de mayo).
 
 \begin{figure}
 \centering
@@ -102,7 +104,7 @@ Para completar los datos de límites superior e inferior del intervalo de confia
 \end{lstlisting}
 \captionsetup{font={footnotesize,it}}
 \caption{Script en R con la aplicación de \textit{prom.test} a los datos de la encuesta.}
-\label{fig:promtest}
+\label{fig:proptest}
 \end{figure}
 
 
