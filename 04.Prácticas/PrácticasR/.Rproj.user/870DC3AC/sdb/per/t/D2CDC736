@@ -1,0 +1,18 @@
+{
+    "contents" : "## Máster en Gestión Sostenible de la Tierra y el Territorio\n## Técnicas de análisis cuantitativas y cualitativas\n## Script de R para la realización de la práctica 6. Análisis de conglomerados.\n## 22/10/2015\n## Marcos Rial Docampo\n\n### Preliminares\n# Cargamos y exploramos los datos de ejemplo\ndata(mtcars)\nstr(mtcars)\nhead(mtcars)\n\n# Para obtener información sobre los datos\nhelp(mtcars)\n\n# Exploramos la correlación entre las variables\ncor(mtcars, method=\"spearman\")\n\n# Exploramos las posibles diferencias de escala\nsummary(mtcars)\n\n# Estandarizamos las variables\nmtcars2 <- scale(mtcars)\nsummary(mtcars2)\n\n## Agrupamiento jerárquico\n# Cálculo de la distancia entre observaciones\ndistancias <- dist(mtcars2)\n#Y por el método manhattan\ndistancias.m <- dist(mtcars2, method = \"manhattan\")\n\n# Podemos explorar las diferentes medidas de distancia disponibles\nhelp(dist)\n\n# Agrupamiento\nagrupam    <- hclust(distancias, method=\"ward.D\")\n# Y sobre distancias.m\nagrupam.m    <- hclust(distancias.m, method=\"ward.D\")\n# Diferentes métodos de agrupamiento disponibles\nhelp(hclust)\n\n# Representación del dengrograma\nplot(agrupam, hang=-1, cex=0.8)\nplot(agrupam.m, hang=-1, cex=0.8)\n\n# Decidimos formar 4 grupos\ngrupos1 <- cutree(agrupam, k=4)\ngrupos1m <- cutree(agrupam.m, k=4)\nprint(grupos1)\nprint(grupos1m)\n\n# Comparamos grupos1 y grupos1m\ntable(grupos1, grupos1m)\n\n# Tratamos de interpretar los resultados, p.ej. con el consumo y el peso\ntapply(mtcars$mpg, INDEX=grupos1, mean)\ntapply(mtcars$wt, INDEX=grupos1, mean)\n\n# También podemos intepretarlo usando diagramas de cajas\nboxplot(mpg~grupos1, data=mtcars, ylab=\"Consumo (millas/galón)\")\nboxplot(wt~grupos1, data=mtcars, ylab=\"Peso (miles de libras)\")\nboxplot(hp~grupos1, data=mtcars, ylab=\"Potencia (cv)\")\nboxplot(qsec~grupos1, data=mtcars, ylab=\"Tiempo 1/4 milla (seg)\")\n\n## Generar un gráfico de alta calidad\npng(\"Graficos/graficoEjem.png\",\n    width=10, height=10/1.5, units=\"cm\",\n    res=300, pointsize=10)\nboxplot(mpg~grupos1, data=mtcars, ylab=\"Consumo (millas/galón)\")\ndev.off()\n\n## O, en pdf:\npdf(\"Graficos/graficoEjem.pdf\", width=10, height=10/1.5)\nboxplot(hp~grupos1, data=mtcars, ylab=\"Potencia (cv)\")\nboxplot(mpg~grupos1, data=mtcars, ylab=\"Consumo (millas/galón)\")\ndev.off()\n\n\n######################\n## Inciso: generar gráficos por lotes\nfor(i in 1:11) {\n  png(paste(\"Graficos/grafico\",i,\".png\", sep=\"\"), \n      width=10, height=10/1.5, units=\"cm\", res=300, pointsize=10)\n  boxplot(mtcars[,i]~grupos1,\n          ylab=colnames(mtcars)[i])\n  dev.off()\n}\n######################\n\n\n\n## Agrupamiento no jerárquico: k-medias\ngrupos2 <- kmeans(mtcars2, centers=4)\nprint(grupos2$cluster)\n\n# Comparación con el resultado del agrupamiento jerárquico\ntable(grupos1, grupos2$cluster)",
+    "created" : 1445522892416.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2947364668",
+    "id" : "D2CDC736",
+    "lastKnownWriteTime" : 1445536939,
+    "path" : "~/MEGA/MasterTerra/Técnicas de Análisis/04.Prácticas/PrácticasR/Scripts/Practica6.R",
+    "project_path" : "Scripts/Practica6.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
