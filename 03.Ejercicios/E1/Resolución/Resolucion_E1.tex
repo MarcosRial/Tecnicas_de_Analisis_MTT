@@ -64,7 +64,7 @@ Para obtener los datos de límites superior e inferior del intervalo de confianz
 	\centering
 	\begin{tabular}{lcccc}
 	\toprule[0.4mm]
-	Partido & Elecciones (mayo) & \multicolumn{3}{c}{Encuesta (sept.)}\\
+	Partido & Elecciones (mayo) & \multicolumn{3}{c}{Encuesta (septiembre)}\\
 	& Valor & Valor & LI$^{*}$ & LS$^{*}$ \\
 	\midrule
 	PP & 34,6\% & 33,7\% & 29,6 & 38,0 \\
@@ -91,10 +91,10 @@ Por extensión al ejercicio podemos realizar un contraste de hipótesis también
 	\centering
 	\begin{tabular}{cc}
 	\toprule[0.4mm]
-	Partido & p-value\\
+	Partido & \textit{p-value}\\
 	\midrule
 	PP & {\color{green} 0,6941} \\
-	Cs & {\color{green} 0,1134} \\
+	Cs & {\color{orange} 0,1134} \\
 	AM & {\color{green} 0,1916} \\
 	PSOE & {\color{green} 0,2294} \\
 	\bottomrule[0.4mm]
@@ -104,7 +104,9 @@ Por extensión al ejercicio podemos realizar un contraste de hipótesis también
 \label{tab:contraste}
 \end{table}
 
-Vemos un valor bajo en el contraste de C's, pero que no permite rechazar la hipótesis nula. En general ninguno lo permite, así que podemos aceptar que los valores de la encuesta se adaptan a los resultados obtenidos en las elecciones.
+Vemos un valor bajo de \textit{p-value} de C's, pero que no indica que sea correcto rechazar la hipótesis nula. En general ninguno lo indica, no pudiendo rechazar en ningún caso dicha hipótesis nula, así que podemos aceptar que los valores de la encuesta se adaptan a los resultados obtenidos en las elecciones.
+
+Concluimos que una propuesta para un posible titular apto para la noticia teniendo en cuenta lo anteriormente expuesto sería ``Existiría la posibilidad de que el PP recuperara Madrid tras 90 días según la encuesta de GAD3 para ABC''.
 
 \begin{figure}
 \centering
