@@ -13,7 +13,6 @@
 \usepackage{verbatim,moreverb}
 
 \usepackage{listings}
-\renewcommand{\lstlistingname}{Función}
 \lstset{
 	frame=tb,
     framerule=0pt,
@@ -55,7 +54,7 @@
 
 En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada, densidad de población y altitud media de una serie de 50 observaciones tomadas en otros tantos municipios gallegos. Se destaca la importancia que tiene la densidad de población o la elevación sobre los cambios de uso de suelo que afectan a superficie agrícola.
 
-En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población.
+En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población. A primera vista podemos observar como aparentemente la relación entre el abandono y la densidad de población no ofrece indicios de correlación entre ambas. Lo que no ocurre con la segunda relación entre el abandono y la elevación, donde sí puede haber correlación. Pero esta es una valoración a priori solo observando el aspecto de las relaciones en una gráfica. Podría ser que alguna de las variables necesitara ser transformada para que en la gráfica se ofreciera una visión más fidedigna, pero no se ve necesario.
 
 \begin{figure}
 	\centering
@@ -66,7 +65,7 @@ En los gráficos de la figura \ref{fig:graficas} se presenta la relación existe
 	\label{fig:graficas}
 \end{figure}
 
-Comprobamos la existencia de correlación entre las variables abandono y elevación y densidad de población. Partimos de la hipótesis nula (H$_0$) de que no existe correlación entre las dos variables estudiadas en cada caso. Para ello empleamos el comando de R \textit{cor.test()} como se muestra en la figura \ref{fig:cor.test}. Vemos en la figura \ref{fig:res.corr} que los resultados nos arrojan una alta correlación entre la variable abandono y la de elevación (coeficiente de Pearson de 0,8718). Mientras que para la otra relación, entre el abandono y la densidad de población, la correlación no existe (coeficiente de Pearson de -0,5379).
+Comprobamos la existencia de correlación entre las variables abandono y elevación y densidad de población. Partimos de la hipótesis nula (H$_0$) de que no existe correlación entre las dos variables estudiadas en cada caso. Para ello empleamos el comando de R \textit{cor.test()} como se muestra en la figura \ref{fig:cor.test}. Vemos en la figura \ref{fig:res.corr} que los resultados nos arrojan una alta correlación entre la variable abandono y la de elevación (coeficiente de Pearson de 0,8718). Mientras que para la otra relación, entre el abandono y la densidad de población, la correlación no existe (coeficiente de Pearson de -0,5379). Se confirma lo expuesto en el párrafo anterior.
 
 \begin{figure}
 \centering
@@ -117,7 +116,7 @@ sample estimates:
 \label{fig:res.corr}
 \end{figure}
 
-Una vez aplicado un modelo de regresión lineal entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()}, que devuelve los parámetros de corte con el eje de ordenadas, 215,6 y OTRO VALOR QUE NO SÉ QUE SIGNIFICA, 1188,7. 
+Una vez aplicado un modelo de regresión lineal entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()}, que devuelve los parámetros de corte con el eje de ordenadas, 215,6 y OTRO VALOR QUE NO SÉ QUE SIGNIFICA, 1188,7.
 
 \begin{figure}
 	\centering
@@ -127,6 +126,6 @@ Una vez aplicado un modelo de regresión lineal entre la variable abandono y ele
 	\label{fig:lm2}
 \end{figure}
 
-
+Analizamos los supuestos de partida (figura .........).
 
 \end{document}
