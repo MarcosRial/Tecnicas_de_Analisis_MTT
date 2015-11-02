@@ -36,6 +36,13 @@ cor.test(datos$abandon.uaa, datos$elevation, alternative = "greater",
          method = "pearson", conf.level = 0.95)
 
 #### Ajuste lineal múltiple ####
+modelom <- lm(datos)
+
+#Comprobación de resultados
+modelom
+summary(modelom)
+
+#### Ajuste lineal simple ####
 modelo1 <- lm(pop.dens~abandon.uaa, data = datos)
 modelo2 <- lm(elevation~abandon.uaa, data = datos)
 
@@ -63,7 +70,7 @@ plot(elevation~abandon.uaa, data = datos,
 abline(modelo2, col = "grey")
 
 #### Exportado de gráficos en png ####
-png ("Graficos/Modelo2.png", #cambiar nombre según convenga
+png ("Graficos/Supuestos.png", #cambiar nombre según convenga
      width=10, height=10/1.5, units="cm",
      res=300, pointsize=8)
 
