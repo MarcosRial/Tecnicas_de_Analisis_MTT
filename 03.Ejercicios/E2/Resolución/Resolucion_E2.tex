@@ -123,7 +123,7 @@ y=-0.1375+0.0002x_{1}+0.0007x_{2}
 \end{equation}
 \noindent siendo \textit{y} la variable abandono y $x_{1}$ y $x_2$ las variables densidad de población y elevación.
 
-De dicho modelo de regresión múltiple extraemos la información que nos permitirá saber que variable es significativa y cual no, en el caso de haberlas, respecto de la variable abandono. Observamos los coeficientes de regresión ofrecidos de el cuadro \ref{tab:coef.multi} donde vemos que existe una fuerte relación del abandono con la variable elevación, mientras que con la variable densidad de población es menor.
+De dicho modelo de regresión múltiple extraemos la información que nos permitirá saber que variable es significativa y cual no, en el caso de haberlas, respecto de la variable abandono. Partiendo con la H$_0$ de que no hay relación entre las variables, observamos los coeficientes de regresión ofrecidos de el cuadro \ref{tab:coef.multi} donde vemos que existe una fuerte relación del abandono con la variable elevación, mientras que con la variable densidad de población es menor. Por lo tanto, con un p-valor de 1.94e-15 (muy cercano a cero) rechazamos la hipótesis nula y aceptamos que la variable elevación es significativa en relación con la variable abandono.
 
 \begin{table}
 \centering
@@ -141,7 +141,7 @@ elevation & 6.987e-04 & 6.005e-05 & 11.635 & 1.94e-15\\
 \label{tab:coef.multi}
 \end{table}
 
-Analizamos los supuestos de partida (figura .........).
+Analizamos los supuestos de partida (figura .........). Valor medio de los residuos. Diagrama de cuantiles para los residuos del ajuste. Variabilidad de los residuos en función de los valores ajustados (condición de homocedasticidad). Puntos de apalancamiento.
 
 Ahora, una vez aplicado un modelo de regresión múltiple y extraída la información obtendremos la recta de regresión entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()} como en el caso anterior, que devuelve los coeficientes de significación que nos permiten obtener la recta de regresión:
 \begin{equation}
