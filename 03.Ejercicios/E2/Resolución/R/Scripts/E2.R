@@ -4,6 +4,7 @@
 ## 26/10/2015
 ## Marcos Rial Docampo
 
+#### Inicio del ejercicio ####
 # Cargamos la tabla de datos
 datos <- read.csv("Datos/DatosExerc2.csv")
 
