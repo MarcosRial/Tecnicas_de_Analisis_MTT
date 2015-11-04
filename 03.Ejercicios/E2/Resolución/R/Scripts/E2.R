@@ -13,17 +13,17 @@ summary(datos)
 
 #### Relaciones ####
 # Relación entre el abandono de superficie agrícola y la densidad de población
-plot(pop.dens~abandon.uaa, data = datos,
+plot(abandon.uaa~pop.dens, data = datos,
      col = "darkgoldenrod3", bg = "azure4", pch = 21,
-     ylab = "densidad de pob. (hab./km2)",
-     xlab = "Abandono de sup. agrícola",
+     xlab = "densidad de pob. (hab./km2)",
+     ylab = "Abandono de sup. agrícola",
      main = "Relación 1")
 
 # Relación entre el abandono de superficie agrícola y la altitud
-plot(elevation~abandon.uaa, data = datos,
+plot(abandon.uaa~elevation, data = datos,
      col = "darkgoldenrod3", bg = "sienna", pch = 21,
-     ylab = "Elevación (m)",
-     xlab = "Abandono de sup. agrícola",
+     xlab = "Elevación (msnm)",
+     ylab = "Abandono de sup. agrícola",
      main = "Relación 2")
 
 #### Estudio de correlación entre variables ####
@@ -36,15 +36,15 @@ cor.test(datos$abandon.uaa, datos$elevation, alternative = "greater",
          method = "pearson", conf.level = 0.95)
 
 #### Ajuste lineal múltiple ####
-modelom <- lm(datos)
+modelom <- lm(abandon.uaa~pop.dens+elevation, data = datos)
 
 #Comprobación de resultados
 modelom
 summary(modelom)
 
 #### Ajuste lineal simple ####
-modelo1 <- lm(pop.dens~abandon.uaa, data = datos)
-modelo2 <- lm(elevation~abandon.uaa, data = datos)
+modelo1 <- lm(abandon.uaa~pop.dens, data = datos)
+modelo2 <- lm(abandon.uaa~elevation, data = datos)
 
 # Comprobación de resultados
 modelo1
@@ -54,24 +54,35 @@ summary(modelo2)
 
 # Graficado de los modelos
 # Modelo 1
-plot(pop.dens~abandon.uaa, data = datos,
+plot(abandon.uaa~pop.dens, data = datos,
      col = "darkgoldenrod3", bg = "azure4", pch = 21,
-     ylab = "densidad de pob. (hab./km2)",
-     xlab = "Abandono de sup. agrícola",
+     xlab = "densidad de pob. (hab./km2)",
+     ylab = "Abandono de sup. agrícola",
      main = "Modelo 1")
 abline(modelo1, col = "grey")
 
 #Modelo 2
-plot(elevation~abandon.uaa, data = datos,
+plot(abandon.uaa~elevation, data = datos,
      col = "darkgoldenrod3", bg = "sienna", pch = 21,
-     ylab = "Elevación (m)",
-     xlab = "Abandono de sup. agrícola",
+     xlab = "Elevación (msnm)",
+     ylab = "Abandono de sup. agrícola",
      main = "Modelo 2")
 abline(modelo2, col = "grey")
+text(300,0.6, labels = "y=-0.0896+0.0006x", col = "grey")
+
+#### Supuestos de partida del modelo de regresión ####
+plot(modelom)
 
 #### Exportado de gráficos en png ####
-png ("Graficos/Supuestos.png", #cambiar nombre según convenga
+png ("Graficos/Modelo2.png", #cambiar nombre según convenga
      width=10, height=10/1.5, units="cm",
      res=300, pointsize=8)
+
+dev.off()
+
+#### Exportado de gráficos en pdf ####
+pdf ("Graficos/Supuesto2.pdf",
+     width = 10, height = 10/1.5,
+     pointsize = 8)
 
 dev.off()
