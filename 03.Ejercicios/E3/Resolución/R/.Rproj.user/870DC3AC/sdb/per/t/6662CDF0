@@ -1,0 +1,18 @@
+{
+    "contents" : "## Máster en Gestión Sostenible de la Tierra y el Territorio\n## Técnicas de Análisis Cuantitativas y Cualitativas\n## Script de R para la realización del efercicio 3 de evaluación\n## 04/11/2015\n## Marcos Rial Docampo\n\n#### Inicio del ejercicio ####\n# Cargamos los datos\ndatos <- read.csv(\"Datos/DatosExerc2.csv\")\n\n# Escalado de datos\ndatos2 <- scale(datos)\nsummary(datos2)\n\n#### Método de agrupamiento jerárquico ####\n# Cálculo de distancias euclídeas\ndistancias <- dist(datos2)\n\n# Agrupamientos y generación del dendrograma\nagrup <- hclust(distancias, method = \"ward\")\nplot(agrup, hang = -1, cex = 0.5,\n     main = \"Agrupamientos\",\n     xlab = \"\", sub = \"\")\n\n# Generación de grupos (k=6)\ngrupos1 <- cutree(agrup, k = 6)\n\n#### Método de agrupamiento no jerárquico ####\n\n#### Exportado de gráficos ####\npng(\"Graficos/Dendrograma.png\", #cambiar según convenga\n    width=10, height=10/1.5, units=\"cm\",\n    res=300, pointsize=8)\n\ndev.off()\n",
+    "created" : 1446658280496.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2053923049",
+    "id" : "6662CDF0",
+    "lastKnownWriteTime" : 1446660531,
+    "path" : "~/MEGA/MasterTerra/Técnicas de Análisis/03.Ejercicios/E3/Resolución/R/Scripts/E3.R",
+    "project_path" : "Scripts/E3.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
