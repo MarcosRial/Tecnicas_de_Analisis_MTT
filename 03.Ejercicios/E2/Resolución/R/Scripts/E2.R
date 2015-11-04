@@ -70,11 +70,13 @@ plot(abandon.uaa~elevation, data = datos,
 abline(modelo2, col = "grey")
 text(300,0.6, labels = "y=-0.0896+0.0006x", col = "grey")
 
-#### Supuestos de partida del modelo de regresión ####
-plot(modelom)
+#### Supuestos de partida de los modelos de regresión ####
+plot(modelom, sub.caption = NA,
+     caption = c("Residuos vs Ajuste", "Diagrama de cuantiles de los residuos", "Variabilidad de los residuos al ajuste", "Residuos vs apalancamiento"))
+plot(modelo2)
 
 #### Exportado de gráficos en png ####
-png ("Graficos/Modelo2.png", #cambiar nombre según convenga
+png ("Graficos/Supuesto1m.png", #cambiar nombre según convenga
      width=10, height=10/1.5, units="cm",
      res=300, pointsize=8)
 

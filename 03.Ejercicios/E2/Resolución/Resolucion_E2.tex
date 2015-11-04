@@ -1,3 +1,8 @@
+%MÁSTER UNIVERSITARIO EN GESTIÓN SOSTENIBLE DE LA TIERRA Y EL TERRITORIO
+%TÉCNICAS DE ANÁLISIS CUANTITATIVAS Y CUALITATIVAS
+%DOCUMENTO DE RESOLUCIÓN DEL EJERCICIO 2 DE EVALUACIÓN
+%MARCOS RIAL DOCAMPO
+
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
@@ -52,9 +57,9 @@
 \begin{document}
 \maketitle
 
-En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada, densidad de población y altitud media de una serie de 50 observaciones tomadas en otros tantos municipios gallegos. Se destaca la importancia que tiene la densidad de población o la elevación sobre los cambios de uso de suelo que afectan a superficie agrícola.
+En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada (FALTAN UNIDADES), densidad de población ($hab/km^{2}$) y altitud media (metros sobre el nivel del mar) de una serie de 50 observaciones tomadas en otros tantos municipios gallegos. Se destaca la importancia que tiene la densidad de población o la elevación sobre los cambios de uso de suelo que afectan a superficie agrícola. Asignamos la variable dependiente al abandono de superficie agrícola y las variables dependientes a la elevación y a la densidad de población.
 
-En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población. A primera vista podemos observar como aparentemente la relación entre el abandono y la densidad de población no ofrece indicios de correlación entre ambas. Lo que no ocurre con la segunda relación entre el abandono y la elevación, donde sí puede haber correlación. Pero esta es una valoración a priori solo observando el aspecto de las relaciones en una gráfica. Podría ser que alguna de las variables necesitara ser transformada para que en la gráfica se ofreciera una visión más fidedigna, pero no se ve necesario.
+En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población. A primera vista podemos observar como aparentemente la relación entre el abandono y la densidad de población no ofrece indicios de correlación entre ambas. Esto no ocurre con la segunda relación entre el abandono y la elevación, donde sí parece haber correlación. Pero esta es una valoración fundada en la simple observación del aspecto de las relaciones en una gráfica. Podría ser que alguna de las variables necesitara ser transformada para que en la gráfica se ofreciera una visión más fidedigna, pero no se ve necesario.
 
 \begin{figure}
 	\centering
@@ -65,7 +70,7 @@ En los gráficos de la figura \ref{fig:graficas} se presenta la relación existe
 	\label{fig:graficas}
 \end{figure}
 
-Comprobamos la existencia de correlación entre las variables abandono y elevación y densidad de población. Partimos de la hipótesis nula (H$_0$) de que no existe correlación entre las dos variables estudiadas en cada caso. Para ello empleamos el comando de R \textit{cor.test()} como se muestra en la figura \ref{fig:cor.test}. Vemos en la figura \ref{fig:res.corr} que los resultados nos arrojan una alta correlación entre la variable abandono y la de elevación (coeficiente de Pearson de 0,8718). Mientras que para la otra relación, entre el abandono y la densidad de población, la correlación no existe (coeficiente de Pearson de -0,5379). Se confirma lo expuesto en el párrafo anterior.
+Comprobamos la existencia de correlación entre las variables abandono y elevación y densidad de población. Partimos de la hipótesis nula (H$_0$) de que no existe correlación entre las dos variables estudiadas en cada caso. Para ello empleamos el comando de R \textit{cor.test()} como se muestra en la figura \ref{fig:cor.test}. Vemos en el cuadro \ref{tab:res.corr} que los resultados nos arrojan una alta correlación entre la variable abandono y la de elevación. Mientras que para la otra relación, entre el abandono y la densidad de población, la correlación es mucho más baja. Se confirma lo expuesto en el párrafo anterior.
 
 \begin{figure}
 \centering
@@ -84,6 +89,23 @@ Comprobamos la existencia de correlación entre las variables abandono y elevaci
 \label{fig:cor.test}
 \end{figure}
 
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccc}
+\toprule[0.4mm]
+Variable & p-valor & Coef. Correlación\\
+\midrule
+Dens. Población & 0,9951 & -0,3620322\\
+Elevación & 2,2e$^{-16}$ & 0,8717672\\
+\bottomrule[0.4mm]
+\end{tabular}
+\captionsetup{font={footnotesize,it}}
+\caption{Resultados del test de correlación en relación con la variable abandono de superficie agraria.}
+\label{tab:res.corr}
+\end{table}
+
+%%%%%%%%%%%%%Inicio de parte comentada%%%%%%%%%%%
+\begin{comment}
 \begin{figure}
 \centering
 \begin{boxedverbatim}
@@ -115,17 +137,19 @@ sample estimates:
 \caption{Resultados del test de correlación.}
 \label{fig:res.corr}
 \end{figure}
+\end{comment}
+%%%%%%%%%%%%%%%Fin parte comentada%%%%%%%%%%%%%%%%%
 
-Podemos obtener un modelo de regresión lineal múltiple entre variables obteniendo de este el plano de regresión:
+Para analizar la relación entre la variable dependiente y las independientes de forma conjunta podemos calcular un modelo de regresión lineal múltiple del que obtenemos el plano de regresión siguiente:
 \begin{equation}
 y=-0.1375+0.0002x_{1}+0.0007x_{2}
 \label{eq:regre.multi}
 \end{equation}
-\noindent siendo \textit{y} la variable abandono y $x_{1}$ y $x_2$ las variables densidad de población y elevación.
+\noindent siendo \textit{y} la variable dependiente y $x_{1}$ y $x_2$ las variables independientes densidad de población y elevación respectivamente.
 
-De dicho modelo de regresión múltiple extraemos la información que nos permitirá saber que variable es significativa y cual no, en el caso de haberlas, respecto de la variable abandono. Partiendo con la H$_0$ de que no hay relación entre las variables, observamos los coeficientes de regresión ofrecidos de el cuadro \ref{tab:coef.multi} donde vemos que existe una fuerte relación del abandono con la variable elevación, mientras que con la variable densidad de población es menor. Por lo tanto, con un p-valor de 1.94e-15 (muy cercano a cero) rechazamos la hipótesis nula y aceptamos que la variable elevación es significativa en relación con la variable abandono.
+De dicho modelo de regresión múltiple extraemos la información que nos permitirá saber qué variable es significativa y cuál no, en el caso de haberlas, respecto de la variable abandono de superficie agraria. Partiendo de la H$_0$ de que no hay correlación entre las variables, observamos los coeficientes de regresión ofrecidos de el cuadro \ref{tab:coef.multi} donde vemos que existe una fuerte relación del abandono con la variable elevación, mientras que con la variable densidad de población es menor. Por lo tanto, con un p-valor de $1.94e^{-15}$ (muy cercano a cero) rechazamos la hipótesis nula y aceptamos que la variable elevación es significativa en relación con la variable abandono.
 
-\begin{table}
+\begin{table}[ht]
 \centering
 \begin{tabular}{ccccc}
 \toprule[0.4mm]
@@ -141,14 +165,25 @@ elevation & 6.987e-04 & 6.005e-05 & 11.635 & 1.94e-15\\
 \label{tab:coef.multi}
 \end{table}
 
-Analizamos los supuestos de partida (figura .........). Valor medio de los residuos. Diagrama de cuantiles para los residuos del ajuste. Variabilidad de los residuos en función de los valores ajustados (condición de homocedasticidad). Puntos de apalancamiento.
+Analizamos los supuestos de partida de la figura \ref{fig:sup.part}. Valor medio de los residuos. Diagrama de cuantiles para los residuos del ajuste. Variabilidad de los residuos en función de los valores ajustados (condición de homocedasticidad). Puntos de apalancamiento.
 
-Ahora, una vez aplicado un modelo de regresión múltiple y extraída la información obtendremos la recta de regresión entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()} como en el caso anterior, que devuelve los coeficientes de significación que nos permiten obtener la recta de regresión:
+\begin{figure}
+\centering
+\includegraphics[scale=0.41]{./R/Graficos/Supuesto1m.png}
+\includegraphics[scale=0.41]{./R/Graficos/Supuesto2m.png}
+\includegraphics[scale=0.41]{./R/Graficos/Supuesto3m.png}
+\includegraphics[scale=0.41]{./R/Graficos/Supuesto4m.png}
+\captionsetup{font={footnotesize,it}}
+\caption{Supuestos de partida de la regresión múltiple.}
+\label{fig:sup.part}
+\end{figure}
+
+Ahora, una vez aplicado un modelo de regresión múltiple y extraída la información obtendremos la recta de regresión entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()} como en el caso anterior pero esta vez simple (a una sola variable), que devuelve los coeficientes de significación que nos permiten obtener la recta de regresión siguiente:
 \begin{equation}
 y=-0.0896+0.0006x
 \label{eq:regre.elev}
 \end{equation}
-\noindent siendo \textit{y} la variable abandono y \textit{x} la variable elevación.
+\noindent siendo \textit{y} la variable dependiente y \textit{x} la variable independiente.
 
 \begin{figure}
 	\centering
