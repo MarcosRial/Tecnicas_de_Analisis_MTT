@@ -78,8 +78,8 @@ plot(modelo2)
 
 #### Exportado de gráficos en png ####
 png ("Graficos/Supuesto1m.png", #cambiar nombre según convenga
-     width=10, height=10/1.5, units="cm",
-     res=300, pointsize=8)
+     width = 10, height = 10/1.5, units = "cm",
+     res = 300, pointsize = 8)
 
 dev.off()
 
