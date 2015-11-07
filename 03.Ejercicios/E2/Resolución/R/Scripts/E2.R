@@ -8,7 +8,7 @@
 # Cargamos la tabla de datos
 datos <- read.csv("Datos/DatosExerc2.csv")
 
-# Comprobacion de estructura y previsualizacion
+# Comprobacion de estructura y previsualizacion de los datos que contiene
 str(datos)
 summary(datos)
 
@@ -26,6 +26,9 @@ plot(abandon.uaa~elevation, data = datos,
      xlab = "Elevación (msnm)",
      ylab = "Abandono de sup. agrícola",
      main = "Relación 2")
+
+# Comprobación de los valores de las variables
+boxplot(datos$pop.dens)
 
 #### Estudio de correlación entre variables ####
 # H0 = las variables no están correlacionadas
@@ -70,8 +73,9 @@ plot(abandon.uaa~elevation, data = datos,
      main = "Modelo 2")
 abline(modelo2, col = "grey")
 text(300,0.6, labels = "y=-0.0896+0.0006x", col = "grey")
+text(300,0.5, labels = "R=0.76", col = "grey")
 
-#### Supuestos de partida de los modelos de regresión ####
+#### Supuestos de partida de los modelos de regresión múltiple ####
 plot(modelom, sub.caption = NA,
      caption = c("Residuos vs Ajuste", "Diagrama de cuantiles de los residuos", "Variabilidad de los residuos al ajuste", "Residuos vs apalancamiento"))
 plot(modelo2)

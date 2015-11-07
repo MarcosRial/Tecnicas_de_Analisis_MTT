@@ -57,9 +57,11 @@
 \begin{document}
 \maketitle
 
-En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada (porcentaje de la superficie agrícola al inicio del periodo), densidad de población ($hab/km^{2}$) y altitud media (metros sobre el nivel del mar) de una serie de 50 observaciones tomadas en otros tantos municipios gallegos. Se destaca la importancia que tiene la densidad de población o la elevación sobre los cambios de uso de suelo que afectan a superficie agrícola. Asignamos la variable dependiente al abandono de superficie agrícola y las variables dependientes a la elevación y a la densidad de población.
+En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada entre 1980 y 2010 (porcentaje de la superficie agrícola que ha cambiado su uso en el periodo estudiado), densidad de población ($hab/km^{2}$ con datos de 1991) y altitud media (metros sobre el nivel del mar) de una serie de 50 observaciones tomadas en otros tantos municipios gallegos. Se destaca la importancia que tiene la densidad de población o la elevación sobre los cambios de uso de suelo que afectan a superficie agrícola. Asignamos la variable dependiente al abandono de superficie agrícola y las variables dependientes a la elevación y a la densidad de población.
 
-En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población. A primera vista podemos observar como aparentemente la relación entre el abandono y la densidad de población no ofrece indicios de correlación entre ambas. Esto no ocurre con la segunda relación entre el abandono y la elevación, donde sí parece haber correlación. Pero esta es una valoración fundada en la simple observación del aspecto de las relaciones en una gráfica. Podría ser que alguna de las variables necesitara ser transformada para que en la gráfica se ofreciera una visión más fidedigna, pero no se ve necesario.
+En los gráficos de la figura \ref{fig:graficas} se presenta la relación existente entre el abandono de la superficie agrícola y las otras dos variables: elevación y densidad de población. A primera vista podemos observar como aparentemente la relación entre el abandono y la densidad de población no ofrece indicios de correlación entre ambas. Esto no ocurre con la segunda relación entre el abandono y la elevación, donde sí parece haber correlación. Esta es una valoración fundada en la simple observación del aspecto de las relaciones de variables en una gráfica. Podría ser que alguna de las variables necesitara ser transformada para que en la gráfica se ofreciera una visión más fidedigna, pero no se ve necesario.
+
+%Tras hacer un diagrama de cajas de cada una de las variables (figura ........), en la densidad de población se observa un gran número de outliers superiores. Correspondería suprimir estas observaciones para realizar un analisis más fiable.
 
 \begin{figure}
 	\centering
@@ -155,9 +157,9 @@ De dicho modelo de regresión múltiple extraemos la información que nos permit
 \toprule[0.4mm]
 & Estimate & Std. Error & t value & Pr$(>|t|)$\\
 \midrule
-(Intercept) & -1.375e-01 & 3.732e-02 & -3.684 & 0.000592\\
-pop.dens & 1.967e-04 & 1.071e-04 & 1.837 & 0.072527\\
-elevation & 6.987e-04 & 6.005e-05 & 11.635 & 1.94e-15\\
+(Intercept) & -1,375e$^{-01}$ & 3,732e$^{-02}$ & -3,684 & 0,000592\\
+pop.dens & 1,967e$^{-04}$ & 1,071e$^{-04}$ & 1,837 & 0,072527\\
+elevation & 6,987e$^{-04}$ & 6,005e$^{-05}$ & 11,635 & 1,94e$^{-15}$\\
 \bottomrule[0.4mm]
 \end{tabular}
 \captionsetup{font={footnotesize,it}}
@@ -165,7 +167,13 @@ elevation & 6.987e-04 & 6.005e-05 & 11.635 & 1.94e-15\\
 \label{tab:coef.multi}
 \end{table}
 
-Analizamos los supuestos de partida de la figura \ref{fig:sup.part}. Valor medio de los residuos. Diagrama de cuantiles para los residuos del ajuste. Variabilidad de los residuos en función de los valores ajustados (condición de homocedasticidad). Puntos de apalancamiento.
+Analizamos los supuestos de partida de la figura \ref{fig:sup.part}. En la primera gráfica vemos, representados con línea continua roja, los valores medios de los residuos comparados con la regresión o ajuste. Tenemos que el valor medio de los residuos es próximo a cero a lo largo del ajuste, lo que nos indicaría la independencia del residuo con los valores ajustados.
+
+En la segunda gráfica vemos el diagrama de cuantiles para los residuos del ajuste que nos permite comprobar que los residuos siguen una distribución normal al estar situados cerca de la diagonal.
+
+El tercer gráfico muestra la variabilidad de los residuos en función de los valores ajustados lo que nos indica una baja homocedasticidad al ser la varianza de los residuos independientes del ajuste.
+
+Y en el cuarto y último gráfico de supuestos de partida observamos que no hay puntos cercanos a la distancia de Cook, lo que nos indica la ausencia de apalancamiento del modelo, lo que es un buen indicativo.
 
 \begin{figure}
 \centering
@@ -178,12 +186,27 @@ Analizamos los supuestos de partida de la figura \ref{fig:sup.part}. Valor medio
 \label{fig:sup.part}
 \end{figure}
 
-Ahora, una vez aplicado un modelo de regresión múltiple y extraída la información obtendremos la recta de regresión entre la variable abandono y elevación (puesto que es la única relación que presenta correlación) obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()} como en el caso anterior pero esta vez simple (a una sola variable), que devuelve los coeficientes de significación que nos permiten obtener la recta de regresión siguiente:
+Una vez aplicado y analizado el modelo de regresión múltiple y extraída la información obtendremos la recta de regresión entre la variable abandono y elevación, puesto que es la única relación que presenta correlación. Obtenemos la gráfica de la figura \ref{fig:lm2} y observamos gracias a invocar el valor ``modelo2'', creado para aplicar la función de regresión lineal \textit{lm()} como en el caso anterior pero esta vez simple (a una sola variable independiente), que devuelve los coeficientes de significación que nos permiten obtener la recta de regresión siguiente y el cuadro de datos \ref{tab:coef.simpl}:
 \begin{equation}
 y=-0.0896+0.0006x
 \label{eq:regre.elev}
 \end{equation}
-\noindent siendo \textit{y} la variable dependiente y \textit{x} la variable independiente.
+\noindent siendo \textit{y} la variable dependiente y \textit{x} la variable independiente. Lo que nos va a permitir estimar el porcentaje de superficie agraria abandonada con la aplicación de un dato de elevación de la zona de estudio.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccc}
+\toprule[0.4mm]
+& Estimate & Std. Error & t value & Pr$(>|t|)$\\
+\midrule
+(Intercept) & -1,375$^{e-01}$ & 3,732$^{e-02}$ & -3,684 & 0,000592\\
+elevation & 6,393e$^{-04}$ & 5,186e$^{-05}$ & 12,328 & $<$2e$^{-16}$\\
+\bottomrule[0.4mm]
+\end{tabular}
+\captionsetup{font={footnotesize,it}}
+\caption{Resultados del análisis de significación de la regresión simple.}
+\label{tab:coef.simpl}
+\end{table}
 
 \begin{figure}
 	\centering
