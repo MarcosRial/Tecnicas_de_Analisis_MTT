@@ -28,7 +28,7 @@ plot(abandon.uaa~elevation, data = datos2,
      xlab = "Elevación (msnm)",
      ylab = "Abandono de sup. agrícola")
 plot(pop.dens~elevation, data = datos2,
-     col = "darkolivegreen1", bg="burlywood3", pch = 21,
+     col = "darkgoldenrod3", bg="burlywood3", pch = 21,
      xlab = "Elevación (msnm)",
      ylab = "Densidad de pob. (hab./km2)")
 
@@ -60,26 +60,32 @@ plot(agrup, hang = -1, cex = 0.5,
      xlab = "", sub = "")
 abline(h = 5, col = "red", lty = 2, lwd = 1)
 
-# Generación de grupos (k=6)
+# Generación de grupos (k=5)
 grupos1 <- cutree(agrup, k = 5)
 
 # Análisis de los grupos con boxplot
 boxplot(abandon.uaa ~ grupos1, data = datos2,
+        pch = 19, col = "azure4", cex = 0.8,
         ylab = "Abandono de superficie agrícola",
         xlab = "Grupo")
+abline(h = seq(0,0.6,0.2), col = "grey")
 
 boxplot(elevation ~ grupos1, data = datos2,
+        pch = 19, col = "sienna", cex = 0.8,
         ylab = "Elevación (msnm)",
         xlab = "Grupo")
+abline(h = seq(0,1400,200), col = "grey")
 
 boxplot(pop.dens ~ grupos1, data = datos2,
+        pch = 19, col = "burlywood3", cex = 0.8,
         ylab = "Densidad de población (hab./km2)",
         xlab = "Grupo")
+abline(h = seq(0,700,200), col = "grey", lty = 1)
 
 #### Método de agrupamiento no jerárquico k-means####
 
 #### Exportado de gráficos ####
-png("Graficos/Dendrograma.png", #cambiar según convenga
+png("Graficos/BoxDensidad.png", #cambiar según convenga
     width=10, height=10/1.5, units="cm",
     res=300, pointsize=8)
 
