@@ -18,32 +18,6 @@
 \usepackage{caption}
 \usepackage{verbatim,moreverb}
 
-\usepackage{listings}
-\lstset{
-	frame=tb,
-    framerule=0pt,
-    aboveskip=3mm,
-    belowskip=3mm,
-    framextopmargin=3pt,
-    framexbottommargin=3pt,
-    %framexleftmargin=0.2cm,
-    framesep=0pt,
-    rulesep=.4pt,
-    backgroundcolor=\color{gray97},
-    rulesepcolor=\color{black},
-    stringstyle=\color{mauve},
-    showstringspaces = false,
-    basicstyle=\footnotesize\ttfamily,
-    commentstyle=\color{dkgreen},
-    keywordstyle=\color{blue},
-    numbers=left,
-    numbersep=-6.5pt,
-    numberstyle=\tiny\color{gray},
-    numberfirstline = false,
-    breaklines=true,
-    morekeywords={*,...}
-   }
-
 \usepackage{xcolor}
 \definecolor{gray97}{gray}{.97}
 \definecolor{gray75}{gray}{.75}
@@ -110,7 +84,7 @@ Máximo & 0&73 & 2&66 & 727&83 & 4&07 & 1145&00 & 2&54\\
 
 Pasamos a realizar el agrupamiento jerárquico. Para empezar calculamos la matriz de distancias entre cada observación en tantas dimensiones como variables tenemos, en este caso tres. Para ejercicio aplicaremos el cálculo de una distancia euclídea (cálculo habitual para la distancia entre dos puntos).
 
-Para realizar el agrupamiento se aplica el método de Ward y obtenemos el dendrograma de la figura \ref{fig:dendro}. En él podemos apreciar los agrupamientos en base a la distancia y el peso de la similitud entre grupos (cuanto mayor es este, menor es la similitud entre grupos). Decidimos realizar los grupos cortando el dendrograma por el peso 5 (línea roja a trazos de la figura \ref{fig:dendro}) resultando así un total de 5 grupos.
+Para realizar el agrupamiento se aplica el algoritmo de Ward y obtenemos el dendrograma de la figura \ref{fig:dendro}. En él podemos apreciar los agrupamientos en base a la distancia y el peso de la similitud entre grupos (cuanto mayor es este, menor es la similitud entre grupos). Decidimos realizar los grupos cortando el dendrograma por el peso 5 (línea roja a trazos de la figura \ref{fig:dendro}) resultando así un total de 5 grupos.
 
 \begin{figure}
 \centering
@@ -136,5 +110,26 @@ Nos ayudamos de los gráficos de cajas de la figura \ref{fig:box} para analizar 
 \caption{Diagramas de cajas de las observaciones agrupadas.}
 \label{fig:box}
 \end{figure}
+
+Para realizar un agrupamiento no jerárquico aplicamos el algoritmo \textit{k-means}. Utilizaremos, al aplicar dicho algoritmo, los datos escalados empleados en el agrupamiento jerárquico así como un total de 5 grupos. Adicionalmente, al comparar la coincidencia entre ambos métodos de clasificación resulta el cuadro \ref{tab:comp} En él vemos que las dos agrupaciones son bastante similares (obviando el hecho de que los nombres de los grupos no coinciden) sobre todo en el caso del grupo 4 jerárquico y 3 no jerárquico donde solo se distinguen por una observación agrupada en otro grupo.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cccccc}
+\toprule[0.4mm]
+Grupos & 1 & 2 & 3 & 4 & 5\\
+1 & 0 & 1 0 & 0 & 15\\
+2 & 0 & 12 & 0 & 0 & 0\\
+3 & 8 & 0 & 0 & 1 & 0\\
+4 & 0 & 1 & 6 & 0 & 0\\
+5 & 2 & 0 & 0 & 0 & 4\\
+\bottomrule[0.4mm]
+\end{tabular}
+\captionsetup{font={footnotesize,it}}
+\caption{Tabla de comparación entre los dos agrupamientos}
+\label{tab:comp}
+\end{table}
+
+El algoritmo \textit{k-means} crea un número \textit{k} de centroides iniciales, tantos como grupos, originalmente repartidos de forma aleatoria entre las observaciones. Los grupos se generan asignando las observaciones al centroide cuyo valor se aproxime más al valor del dato. El valor del centroide se actualiza al de la media del grupo al que representa y vuelve a realizarse el paso anterior. El proceso es iterativo hasta conseguir convergencia o un número de iteraciones predeterminado.
 
 \end{document}
