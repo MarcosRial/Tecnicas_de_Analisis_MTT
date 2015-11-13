@@ -83,6 +83,16 @@ boxplot(pop.dens ~ grupos1, data = datos2,
 abline(h = seq(0,700,200), col = "grey", lty = 1)
 
 #### Método de agrupamiento no jerárquico k-means####
+grupos2 <- kmeans(datos3, centers = 5)
+print(grupos2$cluster)
+
+# Para comprar el grado de coincidencia con los grupos anteriores
+table(grupos1, grupos2$cluster)
+
+boxplot(pop.dens ~ grupos2$cluster, data = datos2,
+        pch = 19, col = "burlywood3", cex = 0.8,
+        ylab = "Densidad de población (hab./km2)",
+        xlab = "Grupo")
 
 #### Exportado de gráficos ####
 png("Graficos/BoxDensidad.png", #cambiar según convenga
