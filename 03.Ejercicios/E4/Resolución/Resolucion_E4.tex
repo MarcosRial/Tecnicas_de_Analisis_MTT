@@ -76,7 +76,7 @@ Veterano & 0&96757 & 0&7029\\
 \bottomrule[0.4mm]
 \end{tabular}
 \captionsetup{font={footnotesize,it}}
-\caption{Resultado del test de Shapiro-Wilk para la variable \textit{total.minutos}.}
+\caption{Resultado del test de Shapiro-Wilk para la variable ``total.minutos''.}
 \label{tab:Shapiro}
 \end{table}
 
@@ -90,5 +90,41 @@ Veterano & 0&96757 & 0&7029\\
 \caption{Diagramas de cuartiles para las categorías de la muestra.}
 \label{fig:diagrama}
 \end{figure}
+
+Es interesante saber si la variable sexo tiene influencia sobre los tiempos obtenidos por los participantes de la prueba. Al ser el sexo de los participantes un factor de dos niveles, podemos realizar un contraste de hipótesis mediante un test de Welch. Obtenemos los resultados del cuadro \ref{tab:sexo} y la figura...... donde vemos que la media del tiempo empleado por las mujeres es casi 9 minutos superior al de los hombres. Además, un p-valor de 7,405e$^{-05}$ sugiere que la interpretación anterior de la diferencia de las medias es correcta. Realizando un análisis de varianza de un factor habríamos obtenido el mismo resultado.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cc}
+\toprule[0.4mm]
+Sexo & Tiempo empleado (minutos)\\
+\midrule
+Femenino & 59,93\\
+Masculino & 50,96\\
+\bottomrule[0.4mm]
+\end{tabular}
+\captionsetup{font={footnotesize,it}}
+\caption{Resultados de las medias de tiempo por sexo de los participantes en la prueba.}
+\label{tab:sexo}
+\end{table}
+
+Analizamos ahora la influencia que tienen los factores sexo y categoría sobre la variable tiempo en minutos. Primero analizamos la influencia de los dos factores por separado con una hipótesis nula (H$_{0}$) de que no afectan estos factores a los tiempos obtenidos por los participantes. Obtenemos los resultados del cuadro \ref{tab:anova1} donde vemos que ambos factores influyen por separado en los tiempos de la prueba deportiva.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cc}
+\toprule[0.4mm]
+Factor & Pr($>$F)\\
+\midrule
+Sexo & 2,09e$^{-05}$\\
+Categoría & 0,0016\\
+\bottomrule[0.4mm]
+\end{tabular}
+\captionsetup{font={footnotesize,it}}
+\caption{Resultado del análisis de varianza para los factores sexo y categoría.}
+\label{tab:anova1}
+\end{table}
+
+Una vez analizados por separado procedemos a hacerlo conjuntamente. En este caso el resultado que nos da es que conjuntamente no afectan al tiempo total de los participantes. Con un Pr($>$F) obtenido de 0,2478 aceptamos la H$_{0}$.
 
 \end{document}

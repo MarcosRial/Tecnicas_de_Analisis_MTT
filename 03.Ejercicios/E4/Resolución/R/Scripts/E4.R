@@ -44,8 +44,27 @@ qqnorm(datos$total.minutos[datos$categoria =="VETERANO"],
 qqline(datos$total.minutos[datos$categoria =="VETERANO"],
        col = "grey50")
 
+#### Contraste de hipótesis para tiempo y sexo ####
+# Contraste de hipótesis
+t.test(total.minutos~sexo, data = datos)
+boxplot(datos$total.minutos ~ datos$sexo,
+        col = c("lightgreen", "lightblue"),
+        names = c("Mujeres", "Hombres"),
+        ylab = "Total minutos")
+
+#### ANOVA de dos factores ####
+# Por separado
+anova1 <- aov(total.minutos~sexo+categoria, data = datos)
+anova1
+summary(anova1)
+
+# Juntas
+anova2 <- aov(total.minutos~sexo*categoria, data = datos)
+anova2
+summary(anova2)
+
 #### Exportado de gráficos ####
-png("./Graficas/CuartVeteranos.png", #modificar a conveniencia
+png("./Graficos/Boxsexo.png", #modificar a conveniencia
     width=10, height=10/1.5, units="cm",
     res=300, pointsize=8)
 
