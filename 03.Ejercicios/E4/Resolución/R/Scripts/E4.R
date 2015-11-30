@@ -19,6 +19,8 @@ tapply(datos$total.minutos, datos$categoria.subcategoria, shapiro.test)
 tapply(datos$total.minutos, datos$categoria, shapiro.test)
 tapply(datos$total.minutos, datos$sexo, shapiro.test)
 
+qqnorm(datos$total.minutos)
+qqline(datos$total.minutos)
 # Análisis gráfico de cuartiles
 qqnorm(datos$total.minutos[datos$categoria =="INFANT-CADETE"],
        pch = 19, col = "dodgerblue", main = "Infantil-Cadete",
@@ -46,6 +48,9 @@ qqline(datos$total.minutos[datos$categoria =="VETERANO"],
 
 #### Contraste de hipótesis para tiempo y sexo ####
 # Contraste de hipótesis
+t.test(datos$total.minutos[datos$sexo == "M"])
+t.test(datos$total.minutos[datos$sexo == "F"])
+
 t.test(total.minutos~sexo, data = datos)
 boxplot(datos$total.minutos ~ datos$sexo,
         col = c("lightgreen", "lightblue"),
@@ -63,8 +68,32 @@ anova2 <- aov(total.minutos~sexo*categoria, data = datos)
 anova2
 summary(anova2)
 
+# Interacción
+anova3 <- aov(total.minutos~sexo:categoria, data = datos)
+anova3
+summary(anova3)
+
+# Gráficas
+interaction.plot(datos$sexo, datos$categoria, datos$total.minutos,
+                 col= c("darkgreen", "blue", "darkred", "grey50"),
+                 ylab = "Tiempo medio (minutos)",
+                 xlab = "Sexo",
+                 trace.label = "Categoría")
+interaction.plot(datos$categoria, datos$sexo, datos$total.minutos,
+                 col = c("darkgreen", "blue"),
+                 ylab = "Tiempo medio (minutos)",
+                 xlab = "Categoría",
+                 trace.label = "Sexo",
+                 cex.axis = 0.8)
+
+#### Análisis de homocedasticidad ####
+# Variable sexo
+var.test(total.minutos ~ sexo, data = datos)
+# Variable categoria
+bartlett.test(total.minutos ~ categoria, data = datos)
+
 #### Exportado de gráficos ####
-png("./Graficos/Boxsexo.png", #modificar a conveniencia
+png("./Graficos/Interaccion2.png", #modificar a conveniencia
     width=10, height=10/1.5, units="cm",
     res=300, pointsize=8)
 
