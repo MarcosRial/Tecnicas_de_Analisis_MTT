@@ -34,7 +34,7 @@
 
 En este ejercicio de evaluación se nos presentan datos de superficie agrícola abandonada (porcentaje de la superficie agrícola al inicio del periodo), densidad de población ($hab/km^{2}$) y altitud media (metros sobre el nivel del mar) de una serie de 50 observaciones tomadas en otros tantos municipios gallegos.
 
-Lo primero que haremos será suprimir la variable categórica \textit{X} puesto que no ofrece información alguna al tratarse de un código referente a la zona donde se tomaron las observaciones. Una vez hecho esto extraemos graficamente la relación directa entre las tres variables restantes como se muestra en la figura \ref{fig:relacion}. La estimación numérica de la correlación entre estas variables sería la mostrada en el cuadro \ref{tab:matrizcor}.
+Lo primero que haremos será suprimir la variable categórica \textit{X} puesto que no ofrece información alguna al tratarse de un código referente a la zona donde se tomaron las observaciones. Una vez hecho esto extraemos gráficamente la relación directa entre las tres variables restantes como se muestra en la figura \ref{fig:relacion}. La estimación numérica de la correlación entre estas variables sería la mostrada en el cuadro \ref{tab:matrizcor} mediante el método de Pearson.
 
 \begin{figure}
 	\centering
@@ -60,7 +60,14 @@ Elevación & 0,8718 & -0,5379 & 1\\
 \label{tab:matrizcor}
 \end{table}
 
-El siguiente paso previo a la generación de agrupamientos sería el de la estandarización de las variables. Tenemos tres variables cuyos datos no se encuentran entre los mismos intervalos donde, por ejemplo, la variable abandono \textit{abandon.uaa} muestra valores entre 0 y 0,73 mientras que la densidad de población (\textit{pop.dens} por ejemplo está entre 9 y 728. Una vez realizada esta estandarización se obtienen los datos del cuadro \ref{tab:estand} donde a cada valor se le resta la media y divide por la desviación típica. Lo que se busca con este estandarizado es el de aproximar los intervalos de los valores de las tres variables y realizar un agrupamiento lo más satisfactorio posible.
+El siguiente paso previo a la generación de agrupamientos sería el de la estandarización de las variables. Tenemos tres variables cuyos datos no se encuentran entre los mismos intervalos donde, por ejemplo, la variable abandono \textit{abandon.uaa} muestra valores entre 0 y 0,73 mientras que la densidad de población \textit{pop.dens} por ejemplo está entre 9 y 728. Lo que se busca con este estandarizado es el de aproximar los intervalos de los valores de las tres variables y realizar un agrupamiento lo más satisfactorio posible. El procedimiento seguido es el de restar a los valores de cada observación la media y dividir por la desviación típica (\ref{eq:estandar}). Una vez realizada esta estandarización se obtienen los datos del cuadro \ref{tab:estand} donde a cada valor se le resta la media y divide por la desviación típica.
+
+\begin{equation}
+x_{i}=\frac{X_{i}-\mu}{\sigma}
+\label{eq:estandar}
+\end{equation}
+
+\noindent donde $x_{i}$ es el valor estandar de la observación $i$ cuyo valor original es $X_{i}$, $\mu$ es la media de la observación y $\sigma$ la desviación típica.
 
 \begin{table}[ht]
 \centering
@@ -82,7 +89,7 @@ Máximo & 0&73 & 2&66 & 727&83 & 4&07 & 1145&00 & 2&54\\
 \label{tab:estand}
 \end{table}
 
-Pasamos a realizar el agrupamiento jerárquico. Para empezar calculamos la matriz de distancias entre cada observación en tantas dimensiones como variables tenemos, en este caso tres. Para ejercicio aplicaremos el cálculo de una distancia euclídea (cálculo habitual para la distancia entre dos puntos).
+Pasamos a realizar el agrupamiento jerárquico. Para empezar calculamos la matriz de distancias entre cada observación en tantas dimensiones como variables tenemos, en este caso, tres. Para este ejercicio aplicaremos el cálculo de una distancia euclídea (cálculo habitual para la distancia entre dos puntos).
 
 Para realizar el agrupamiento se aplica el algoritmo de Ward y obtenemos el dendrograma de la figura \ref{fig:dendro}. En él podemos apreciar los agrupamientos en base a la distancia y el peso de la similitud entre grupos (cuanto mayor es este, menor es la similitud entre grupos). Decidimos realizar los grupos cortando el dendrograma por el peso 5 (línea roja a trazos de la figura \ref{fig:dendro}) resultando así un total de 5 grupos.
 
@@ -130,6 +137,7 @@ Grupos & 1 & 2 & 3 & 4 & 5\\
 \label{tab:comp}
 \end{table}
 
+\newpage
 El algoritmo \textit{k-means} crea un número \textit{k} de centroides iniciales, tantos como grupos, originalmente repartidos de forma aleatoria entre las observaciones. Los grupos se generan asignando las observaciones al centroide cuyo valor se aproxime más al valor del dato. El valor del centroide se actualiza al de la media del grupo al que representa y vuelve a realizarse el paso anterior. El proceso es iterativo hasta conseguir convergencia o un número de iteraciones predeterminado.
 
 \end{document}

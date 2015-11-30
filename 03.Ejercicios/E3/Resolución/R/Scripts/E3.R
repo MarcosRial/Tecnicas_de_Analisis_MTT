@@ -33,6 +33,7 @@ plot(pop.dens~elevation, data = datos2,
      ylab = "Densidad de pob. (hab./km2)")
 
 #### Estudio de correlación entre variables ####
+cor(datos2, method = "s") # Método según prácticas
 # H0 = las variables no están correlacionadas
 # Abandono vs densidad de población
 cor.test(datos2$abandon.uaa, datos2$pop.dens,
@@ -59,6 +60,7 @@ plot(agrup, hang = -1, cex = 0.5,
      ylab = "Peso",
      xlab = "", sub = "")
 abline(h = 5, col = "red", lty = 2, lwd = 1)
+table(grupos1)
 
 # Generación de grupos (k=5)
 grupos1 <- cutree(agrup, k = 5)
