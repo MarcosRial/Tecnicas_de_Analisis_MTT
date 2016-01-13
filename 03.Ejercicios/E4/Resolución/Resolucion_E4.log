@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.13)  29 NOV 2015 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.16)  12 JAN 2016 12:39
 entering extended mode
-**Resolucion_E4.tex
+**./Resolucion_E4.tex
 (Resolucion_E4.tex
-LaTeX2e <2015/01/01> patch level 2
+LaTeX2e <2015/10/01> patch level 2
 Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -604,6 +604,8 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
+\openout1 = `Resolucion_E4.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
@@ -635,6 +637,8 @@ LaTeX Info: Redefining \nameref on input line 58.
 
 (Resolucion_E4.out) (Resolucion_E4.out)
 \@outlinefile=\write3
+\openout3 = `Resolucion_E4.out'.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -725,8 +729,60 @@ File: ./R/Graficos/CuartVeteranos.png Graphic file (type png)
 Package pdftex.def Info: ./R/Graficos/CuartVeteranos.png used on input line 88.
 
 (pdftex.def)             Requested size: 206.26582pt x 137.45233pt.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
+ [1
 
-<./R/Graficos/Boxsexo.png, id=11, 284.5029pt x 189.5883pt>
+{C:/Users/Marcos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
+ [2 <./R/Graficos/CuartInfantil.png> <./R/Graficos/CuartJunior.png> <./R/Grafic
+os/CuartSenior.png> <./R/Graficos/CuartVeteranos.png>] <./R/Graficos/Boxsexo.pn
+g, id=34, 284.5029pt x 189.5883pt>
 File: ./R/Graficos/Boxsexo.png Graphic file (type png)
 
 <use ./R/Graficos/Boxsexo.png>
@@ -756,44 +812,15 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 137.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 137.
- [1
-
-{C:/Users/Marcos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 137.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 137.
- [2 <./R/Graficos/CuartInfantil.png> <./R/Graficos/CuartJunior.png> <./R/Grafic
-os/CuartSenior.png> <./R/Graficos/CuartVeteranos.png> <./R/Graficos/Boxsexo.png
->]
-<./R/Graficos/Interaccion1.png, id=41, 284.5029pt x 189.5883pt>
+ [3 <./R/Graficos/Boxsexo.png>]
+<./R/Graficos/Interaccion1.png, id=47, 284.5029pt x 189.5883pt>
 File: ./R/Graficos/Interaccion1.png Graphic file (type png)
 
 <use ./R/Graficos/Interaccion1.png>
 Package pdftex.def Info: ./R/Graficos/Interaccion1.png used on input line 140.
 (pdftex.def)             Requested size: 284.5022pt x 189.58783pt.
 
-<./R/Graficos/Interaccion2.png, id=42, 284.5029pt x 189.5883pt>
+<./R/Graficos/Interaccion2.png, id=48, 284.5029pt x 189.5883pt>
 File: ./R/Graficos/Interaccion2.png Graphic file (type png)
 
 <use ./R/Graficos/Interaccion2.png>
@@ -824,7 +851,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 157.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 157.
- [3]
+ [4 <./R/Graficos/Interaccion1.png>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 157.
 Package babel Info: Redefining spanish shorthand >>
@@ -849,7 +876,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 157.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 157.
- [4 <./R/Graficos/Interaccion1.png> <./R/Graficos/Interaccion2.png>]
+
+[5 <./R/Graficos/Interaccion2.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
  (Resolucion_E4.aux
 LaTeX Info: Redefining \. on input line 23.
@@ -862,13 +890,13 @@ Package rerunfilecheck Info: File `Resolucion_E4.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
  ) 
 Here is how much of TeX's memory you used:
- 10218 strings out of 493673
- 146756 string characters out of 3143956
- 256850 words of memory out of 3000000
- 13441 multiletter control sequences out of 15000+200000
+ 10218 strings out of 493634
+ 146748 string characters out of 3143740
+ 254999 words of memory out of 3000000
+ 13477 multiletter control sequences out of 15000+200000
  11122 words of font info for 42 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 36i,10n,38p,697b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,10n,38p,1159b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
@@ -877,9 +905,9 @@ s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti9.pfb>
-Output written on Resolucion_E4.pdf (4 pages, 167715 bytes).
+Output written on Resolucion_E4.pdf (5 pages, 169439 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
