@@ -79,9 +79,16 @@ Para obtener los datos de límites superior e inferior del intervalo de confianz
 \label{tab:resumen}
 \end{table}
 
-Se indica en la noticia que el error de muestreo es de $\pm4,5\%$. Esto quiere decir que la diferencia entre los resultados de la encuesta y los reales (preguntando a toda la población) serían de un 4,5\%. Una forma de reducir este error podría ser la de ampliar el tamaño de la muestra pero es un valor que no debería generalizarse a toda la encuesta puesto que tenemos resultados porcentuales de lo que se espera obtener en la encuesta para cada uno de los partidos políticos (reflejados en los resultados electorales de mayo). Es decir, que cada dato para cada partido político obtendría su propio dato de error de muestreo.
+Se indica en la noticia que el error de muestreo es de $\pm4,5\%$. Esto quiere decir que la diferencia entre los resultados de la encuesta y los reales (preguntando a toda la población) sería de un 4,5\%. Una forma de reducir este error podría ser la de ampliar el tamaño de la muestra pero es un valor que no debería generalizarse a toda la encuesta puesto que tenemos resultados porcentuales de lo que se espera obtener en la encuesta para cada uno de los partidos políticos (reflejados en los resultados electorales de mayo). Es decir, que cada dato para cada partido político obtendría su propio dato de error de muestreo.
 
-Un error muestral del $\pm4,5\%$ se antoja bastante alto para afirmar con rotundidad, como dice el titular del artículo, que la candidata del  Partido Popular (PP) recuperaría la alcaldía de haber un pacto con Ciudadanos (C's). Si a esto añadimos el hecho de que los intervalos de confianza son bastante amplios refuerza la incorrecta inferencia dada por el periodista.
+Un error muestral del $\pm4,5\%$ se antoja bastante alto para afirmar con rotundidad, como dice el titular del artículo, que la candidata del  Partido Popular (PP) recuperaría la alcaldía de haber un pacto con Ciudadanos (C's). Si a esto añadimos el hecho de que los intervalos de confianza son bastante amplios refuerza la incorrecta inferencia hecha por el periodista. {\color{dkgreen}Puede deberse a que en encuestas electorales publicadas en prensa este valor se toma como si fuera el intervalo de confianza haciendo pensar que se trata de un margen de error\footnote{Entrada en Explorable.com donde se trata el tema del error de muestreo en encuestas de opinión de periódicos \url{https://explorable.com/es/error-de-muestreo-aleatorio}}. El error de muestreo correcto para esta encuesta, siguiendo la ecuación \ref{eq:error} sería de un $\pm2,2\%$.
+
+\begin{equation}
+E=\sqrt{\frac{p \cdot (1-p)}{n}}
+\label{eq:error}
+\end{equation}
+
+\noindent siendo p el valor tomado de 0,5 y n el tamaño de la muestra de 502 elementos.}
 
 Para asegurar lo dicho en el párrafo anterior podemos tomar los votos conjuntos a PP y C's para evaluarlos separadamente. Obtenemos así para un 47,5\% de los votos un intervalo de confianza al 95\% de 43,0 - 51,9.
 
